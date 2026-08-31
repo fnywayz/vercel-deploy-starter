@@ -1,0 +1,51 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone
+        uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: install backend dependencies
+        run: |
+          cd backend
+          npm ci
+
+      - name: run linting back
+        run: |
+          cd backend
+          npm run lint
+
+      - name: Run backend tests
+        run: |
+          cd backend
+          npm test
+
+      - name: install frontend dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: run linting front
+        run: |
+          cd frontend
+          npm run lint
+
+      - name: build frontend
+        run: |
+          cd frontend
+          npm run build
