@@ -14,7 +14,10 @@ Returns and displays: **Hello Vercel !**
 - **Hosting:** Vercel
 
 ---
+##  Project Architecture
 
+![Project Screenshot](./architecture/architecture.png)
+---
 ##  Project Structure
 
 ```tree
@@ -106,3 +109,12 @@ Want to deploy your own app using this project as a starting point? Check **[REA
 > **Note:** For Python/Java/Go/Rust backends, replace `@vercel/node` in `backend/vercel.json` with the appropriate Vercel runtime or use a separate hosting service for the backend.
 
 ---
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+You are free to:
+- ✅ Use this project for any purpose
+- ✅ Copy, modify, and distribute
+- ✅ Use it commercially
+- ⚠️ Just include the original license and copyright notice
