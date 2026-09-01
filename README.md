@@ -106,29 +106,3 @@ Want to deploy your own app using this project as a starting point? Check **[REA
 > **Note:** For Python/Java/Go/Rust backends, replace `@vercel/node` in `backend/vercel.json` with the appropriate Vercel runtime or use a separate hosting service for the backend.
 
 ---
-
-##  Share With Students — Create a GitHub Repo
-
-The fastest way to put this on GitHub for your students:
-
-```bash
-# 1. Install GitHub CLI (one time)
-sudo apt install gh        # Linux
-# or: brew install gh       # macOS
-
-# 2. Login
-gh auth login
-
-# 3. Create the repo + push (run from project root)
-gh repo create vercel-deploy-starter --public --source=. --remote=origin --push
-```
-
-That's it. One command creates the repo and pushes everything. Your students can then:
-
-```bash
-# Students fork and clone
-git clone https://github.com/YOUR_USERNAME/vercel-deploy-starter.git
-cd vercel-deploy-starter
-```
-
-Or share the direct link: `https://github.com/YOUR_USERNAME/vercel-deploy-starter`
