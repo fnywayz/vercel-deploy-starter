@@ -43,13 +43,27 @@ project-root/
 │
 └─ README.md
 ```
+---
+## 🧠 What Concepts Every New Contributor Should Understand
+
+| Concept | Plain English Explanation | Why It Matters Here |
+|---------|--------------------------|--------------------|
+| **Git & GitHub** | How you save and share code with others (`push`, `pull`, `commit`) | Essential for all open-source projects |
+| **npm / dependencies** | Libraries like React, Express — you list them in `package.json` so everyone installs the same stuff | Keeps your app working across machines |
+| **Vercel deployment** | Static frontend + serverless backend on one platform | No need to manage servers yourself |
+| **.env files** | Local environment variables (API keys) never committed to GitHub | Prevents secrets leaking publicly |
+| **CI/CD pipelines** | Automated testing and deploying when you push code | Saves time, catches mistakes early |
 
 ---
 
 ##  Getting Started (Local Dev)
+### Clone the repo:
 
+```bash
+git clone https://github.com/fnywayz/vercel-deploy-starter.git
+cd vercel-deploy-starter
+``` 
 ### Backend
-
 ```bash
 cd backend
 npm install
