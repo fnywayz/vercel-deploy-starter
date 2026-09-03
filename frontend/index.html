@@ -1,12 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Vercel</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/index.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Hello People</title>
+    <style>
+        /* Color palette extracted from logo */
+        :root {
+            --dark-blue: #0d2b4a;
+            --medium-teal: #1abc9c;
+            --light-teal: #38ada9;
+            --accent-green: #58d68d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a4d6e 50%, var(--medium-teal) 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated background elements */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(26, 188, 156, 0.1) 10px,
+                rgba(26, 188, 156, 0.1) 20px
+            );
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo-container img {
+            width: 150px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .main-title {
+            font-size: 3.5em;
+            background: linear-gradient(45deg, var(--dark-blue), var(--medium-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(26,188,156,0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(26,188,156,0.6)); }
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: var(--dark-blue);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .coming-soon-banner {
+            background: linear-gradient(90deg, var(--medium-teal), var(--light-teal));
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .coming-soon-text {
+            font-size: 1.8em;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .countdown {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(13, 43, 74, 0.1);
+            border-radius: 10px;
+        }
+
+        .countdown p {
+            color: var(--dark-blue);
+            margin: 8px 0;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-btn {
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            color: white !important;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .facebook { background: var(--dark-blue); }
+        .twitter { background: #1da1f2; }
+        .github { background: #1da1f2; }
+        .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+        /* Decorative arrows from logo */
+        .arrows-decoration {
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            transform: translateY(-50%);
+            font-size: 4em;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .arrows-decoration.right {
+            right: -20px;
+            left: auto;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .main-title { font-size: 2.5em; }
+            .subtitle { font-size: 1.1em; }
+            .container { padding: 25px; }
+        }
+
+        /* Loading animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Decorative arrows from logo -->
+        <div class="arrows-decoration">↗ ↖ ↑ ↗ ↘</div>
+        
+        <div class="logo-container">
+            <img src="./src/logo.PNG" alt="Company Logo" onerror="this.style.display='none'; document.querySelector('.placeholder').style.display='block'">
+            <div class="placeholder" style="display:none; font-size: 4em;">🚀</div>
+        </div>
+
+    <div id="root"></div><p class="subtitle"> <script type="module" src="/src/index.jsx"></script></p>
+   
+        
+        <p class="subtitle">Something amazing is coming your way...</p>
+        <div class="coming-soon-banner">
+            <div class="coming-soon-text pulse">🚀 COMING SOON 🚀</div>
+            
+            <div class="countdown">
+                <p><strong>We're building something special!</strong></p>
+                <p style="font-size: 0.9em; margin-top: 10px;">Follow us to be the first to know!</p>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://github.com/fnywayz" class="social-btn github">GitHub</a>
+        </div>
+    </div>
+
+    <script>
+        // Add dynamic year to footer
+        const currentYear = new Date().getFullYear();
+        
+        console.log('Hello People! Coming Soon page loaded successfully.');
+        console.log(`Current year: ${currentYear}`);
+    </script>
+</body>
 </html>
