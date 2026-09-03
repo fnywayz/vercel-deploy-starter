@@ -15,8 +15,8 @@ A step-by-step guide to clone, customize, and deploy your own full-stack web app
 ## Step 1 — Fork or Clone
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-cd YOUR_REPO
+git clone https://github.com/fnywayz/vercel-deploy-starter.git
+cd vercel-deploy-starter
 ```
 
 ---

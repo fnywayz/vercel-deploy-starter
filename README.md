@@ -14,7 +14,10 @@ Returns and displays: **Hello Vercel !**
 - **Hosting:** Vercel
 
 ---
+##  Project Architecture
 
+![Project Screenshot](./architecture/architecture.png)
+---
 ##  Project Structure
 
 ```tree
@@ -40,13 +43,27 @@ project-root/
 │
 └─ README.md
 ```
+---
+## 🧠 What Concepts Every New Contributor Should Understand
+
+| Concept | Plain English Explanation | Why It Matters Here |
+|---------|--------------------------|--------------------|
+| **Git & GitHub** | How you save and share code with others (`push`, `pull`, `commit`) | Essential for all open-source projects |
+| **npm / dependencies** | Libraries like React, Express — you list them in `package.json` so everyone installs the same stuff | Keeps your app working across machines |
+| **Vercel deployment** | Static frontend + serverless backend on one platform | No need to manage servers yourself |
+| **.env files** | Local environment variables (API keys) never committed to GitHub | Prevents secrets leaking publicly |
+| **CI/CD pipelines** | Automated testing and deploying when you push code | Saves time, catches mistakes early |
 
 ---
 
 ##  Getting Started (Local Dev)
+### Clone the repo:
 
+```bash
+git clone https://github.com/fnywayz/vercel-deploy-starter.git
+cd vercel-deploy-starter
+``` 
 ### Backend
-
 ```bash
 cd backend
 npm install
@@ -106,29 +123,12 @@ Want to deploy your own app using this project as a starting point? Check **[REA
 > **Note:** For Python/Java/Go/Rust backends, replace `@vercel/node` in `backend/vercel.json` with the appropriate Vercel runtime or use a separate hosting service for the backend.
 
 ---
+## License
 
-##  Share With Students — Create a GitHub Repo
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-The fastest way to put this on GitHub for your students:
-
-```bash
-# 1. Install GitHub CLI (one time)
-sudo apt install gh        # Linux
-# or: brew install gh       # macOS
-
-# 2. Login
-gh auth login
-
-# 3. Create the repo + push (run from project root)
-gh repo create vercel-deploy-starter --public --source=. --remote=origin --push
-```
-
-That's it. One command creates the repo and pushes everything. Your students can then:
-
-```bash
-# Students fork and clone
-git clone https://github.com/YOUR_USERNAME/vercel-deploy-starter.git
-cd vercel-deploy-starter
-```
-
-Or share the direct link: `https://github.com/YOUR_USERNAME/vercel-deploy-starter`
+You are free to:
+- ✅ Use this project for any purpose
+- ✅ Copy, modify, and distribute
+- ✅ Use it commercially
+- ⚠️ Just include the original license and copyright notice
